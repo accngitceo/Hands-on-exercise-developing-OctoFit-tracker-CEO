@@ -18,6 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework.routers import DefaultRouter
 from rest_framework.response import Response
+import os
 from rest_framework.decorators import api_view
 from .views import UserViewSet, TeamViewSet, ActivityViewSet, WorkoutViewSet, LeaderboardViewSet
 
@@ -30,12 +31,18 @@ router.register(r'leaderboards', LeaderboardViewSet)
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    codespace = os.environ.get('CODESPACE_NAME')
+    if codespace:
+        base = f"https://{codespace}-8000.app.github.dev".rstrip('/')
+    else:
+        base = request.build_absolute_uri('/').rstrip('/')
+
     return Response({
-        'users': request.build_absolute_uri('api/users/'),
-        'teams': request.build_absolute_uri('api/teams/'),
-        'activities': request.build_absolute_uri('api/activities/'),
-        'workouts': request.build_absolute_uri('api/workouts/'),
-        'leaderboards': request.build_absolute_uri('api/leaderboards/'),
+        'users': f"{base}/api/users/",
+        'teams': f"{base}/api/teams/",
+        'activities': f"{base}/api/activities/",
+        'workouts': f"{base}/api/workouts/",
+        'leaderboards': f"{base}/api/leaderboards/",
     })
 
 urlpatterns = [
