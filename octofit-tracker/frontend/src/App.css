@@ -1,0 +1,126 @@
+/* App-wide styles for OctoFit Tracker */
+:root{
+  --brand-color:#4f46e5; /* violet */
+  --muted:#6b7280;
+  --bg:#0f172a; /* dark blue background */
+  --card-bg:#0b1220;
+  --accent:#06b6d4; /* cyan accent */
+  --table-header:#111827;
+  --table-row:#0b1220;
+}
+
+body {
+  background: linear-gradient(180deg, #0b1220 0%, #071126 100%);
+  color: #e6eef8;
+  min-height: 100vh;
+}
+
+.app-container {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.navbar {
+  background: linear-gradient(90deg, rgba(79,70,229,0.12), rgba(6,182,212,0.06));
+}
+
+.navbar-brand {
+  color: var(--accent) !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: white;
+}
+
+.nav-link {
+  color: #cfe7f6;
+}
+.nav-link.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.card-header h2,h3,h1{
+  color: #f1f5f9;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.table {
+  color: #e6eef8;
+  background: transparent;
+}
+
+.table thead th {
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+  color: #9fb4c9;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.table tbody td {
+  border-top: 1px solid rgba(255,255,255,0.02);
+}
+
+.btn-primary {
+  background: var(--brand-color);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.btn-outline-primary {
+  color: var(--accent);
+  border-color: rgba(255,255,255,0.06);
+}
+
+.detail-json {
+  max-height: 60vh;
+  overflow: auto;
+  background: #071427;
+  padding: 0.75rem;
+  border-radius: 4px;
+  color: #bfeaf6;
+}
+
+.refresh-btn {
+  margin-left: 0.5rem;
+}
+
+.modal-backdrop-custom{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:1040;
+}
+
+.modal-custom{
+  z-index:1050;
+}
+
+a {
+  color: var(--accent);
+}
+
+h1,h2,h3 {
+  color: #e6eef8;
+}
+
+p, small {
+  color: var(--muted);
+}
+
+/* Triggering workflow rerun: minor whitespace/comment change */
