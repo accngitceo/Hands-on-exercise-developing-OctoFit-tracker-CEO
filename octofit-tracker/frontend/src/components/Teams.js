@@ -1,33 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { apiUrl } from '../config'
-
-function RenderTable({ items, onView }) {
-  if (!items || items.length === 0) return <div>No data available</div>
-  const first = items[0]
-  const columns = typeof first === 'object' && !Array.isArray(first) ? Object.keys(first) : ['value']
-  return (
-    <div className="table-responsive">
-      <table className="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            {columns.map((c) => <th key={c}>{c}</th>)}
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((it, idx) => (
-            <tr key={idx}>
-              <td>{idx + 1}</td>
-              {columns.map((c) => <td key={c}>{typeof it === 'object' ? String(it[c]) : String(it)}</td>)}
-              <td><button className="btn btn-sm btn-outline-primary" onClick={() => onView(it)}>View</button></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
-}
+import TableView from './TableView'
+import DetailModal from './DetailModal'
 
 export default function Teams() {
   const [items, setItems] = useState([])
@@ -62,26 +36,10 @@ export default function Teams() {
         </div>
       </div>
       <div className="card-body">
-        {loading ? <div>Loading teams...</div> : <RenderTable items={items} onView={handleView} />}
+        {loading ? <div>Loading teams...</div> : <TableView items={items} onShowDetails={handleView} />}
       </div>
 
-      {modalOpen && (
-        <>
-          <div className="modal-backdrop-custom" onClick={() => setModalOpen(false)} />
-          <div className="modal d-block modal-custom" tabIndex="-1" role="dialog">
-            <div className="modal-dialog modal-lg" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title">Team Details</h5>
-                  <button type="button" className="btn-close" onClick={() => setModalOpen(false)} />
-                </div>
-                <div className="modal-body"><pre>{JSON.stringify(selected, null, 2)}</pre></div>
-                <div className="modal-footer"><button className="btn btn-secondary" onClick={() => setModalOpen(false)}>Close</button></div>
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+      <DetailModal show={modalOpen} onClose={() => setModalOpen(false)} title="Team Details" data={selected} />
     </div>
   )
 }

@@ -1,3 +1,27 @@
+/* App-wide styles for OctoFit Tracker */
+body {
+  background: #f8f9fa;
+}
+.app-container {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.card .card-header .nav-link.active {
+  font-weight: 600;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+.detail-json {
+  max-height: 60vh;
+  overflow: auto;
+  background: #f6f8fa;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+.refresh-btn {
+  margin-left: 0.5rem;
+}
 :root{
   --brand-color:#0069d9;
 }
