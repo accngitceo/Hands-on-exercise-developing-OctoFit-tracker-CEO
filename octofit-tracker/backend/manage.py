@@ -7,6 +7,11 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'octofit_tracker.settings')
+    # When launched without any subcommand (e.g. by some debuggers),
+    # default to starting the development server to avoid SystemExit(1).
+    # This keeps the developer experience smooth in Codespaces/VSCode.
+    if len(sys.argv) == 1:
+        sys.argv += ["runserver", "0.0.0.0:8000"]
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
