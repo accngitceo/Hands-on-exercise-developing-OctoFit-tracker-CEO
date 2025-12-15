@@ -13,4 +13,8 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'octofit_tracker.settings')
 
-application = get_wsgi_application()
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'octofit_tracker.settings')
+>>>>>>> main
+tion = get_wsgi_application()
