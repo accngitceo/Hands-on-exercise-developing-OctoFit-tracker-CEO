@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import Activities from './components/Activities'
 import Leaderboard from './components/Leaderboard'
@@ -12,8 +13,8 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="container mt-3">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <div className="app-container mt-3">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
           <div className="container-fluid">
             <NavLink className="navbar-brand" to="/">OctoFit</NavLink>
             <div className="collapse navbar-collapse">
@@ -29,7 +30,7 @@ export default function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<div><h1>Welcome to OctoFit Tracker</h1><p>Select a section from the nav.</p></div>} />
+          <Route path="/" element={<div className="card p-4"><h1 className="h3">Welcome to OctoFit Tracker</h1><p>Select a section from the nav.</p></div>} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/workouts" element={<Workouts />} />
           <Route path="/teams" element={<Teams />} />
