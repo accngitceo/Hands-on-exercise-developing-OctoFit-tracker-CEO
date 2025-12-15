@@ -16,7 +16,10 @@ export default function App() {
       <div className="app-container mt-3">
         <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
           <div className="container-fluid">
-            <NavLink className="navbar-brand" to="/">OctoFit</NavLink>
+            <NavLink className="navbar-brand d-flex align-items-center" to="/">
+              <img src="/octofitapp-small.png" alt="OctoFit" className="logo me-2" />
+              <span>OctoFit</span>
+            </NavLink>
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item"><NavLink className="nav-link" to="/activities">Activities</NavLink></li>

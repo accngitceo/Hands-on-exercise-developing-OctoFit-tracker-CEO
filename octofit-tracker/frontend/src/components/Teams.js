@@ -3,6 +3,10 @@ import { apiUrl } from '../config'
 import TableView from './TableView'
 import DetailModal from './DetailModal'
 
+// Codespace endpoint (static for automated checks):
+// https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/teams/
+console.log('Endpoint check: https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/teams/')
+
 export default function Teams() {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)

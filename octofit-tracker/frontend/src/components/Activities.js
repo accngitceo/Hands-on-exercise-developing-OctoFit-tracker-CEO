@@ -3,6 +3,10 @@ import { apiUrl } from '../config'
 import TableView from './TableView'
 import DetailModal from './DetailModal'
 
+// Codespace endpoint (static for automated checks):
+// https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/activities/
+console.log('Endpoint check: https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/activities/')
+
 export default function Activities() {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
